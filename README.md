@@ -1,5 +1,8 @@
-# ethereum-smart-contract-exercise
-Sample Ethereum smart contract for the Security class seminar at UNIBO
+# Booking with Oracle in ETHEREUM
+A project that implements a tourist booking model using the blockchain and oracle as described in the master's thesis by Andrea Roberta Costagliola.
+
+## Author
+[Gori Giacomo](https://github.com/beawareoftheg) and [Marco Morozzi](https://github.com/marcoleino)
 
 ## Install 
 
