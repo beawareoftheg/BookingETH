@@ -1,0 +1,21 @@
+{
+  "name": "bookingeth",
+  "version": "1.0.0",
+  "description": "Sample Ethereum smart contract for the Security class seminar at UNIBO",
+  "main": "compile.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "giacomoemarco",
+  "license": "ISC",
+  "dependencies": {
+    "ganache-cli": "^6.12.2",
+    "mocha": "^8.3.0",
+    "solc": "^0.4.25",
+    "truffle-hdwallet-provider": "^1.0.17",
+    "web3": "^1.3.4"
+  }
+}
