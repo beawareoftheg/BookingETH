@@ -1,0 +1,10 @@
+import web3 from "./web3";
+
+
+const address = process.env.REACT_APP_SCBACKEND_ADDRESS;
+const abitext = '[{"constant":true,"inputs":[],"name":"getBookingsAll","outputs":[{"name":"","type":"address[]"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"backend","outputs":[{"name":"","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"","type":"uint256"}],"name":"bookingsAddr","outputs":[{"name":"","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"add","type":"address"},{"name":"startDate","type":"uint256"},{"name":"endDate","type":"uint256"},{"name":"city","type":"string"},{"name":"payment","type":"uint256"}],"name":"setBooking","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"add","type":"address"},{"name":"startDate","type":"uint256"},{"name":"endDate","type":"uint256"},{"name":"city","type":"string"},{"name":"payment","type":"uint256"}],"name":"book","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"oracle","outputs":[{"name":"","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"ins","type":"address"}],"name":"getBookingByAdd","outputs":[{"name":"","type":"uint256"},{"name":"","type":"uint256"},{"name":"","type":"string"},{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"getBookingNumber","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"inputs":[],"payable":false,"stateMutability":"nonpayable","type":"constructor"},{"anonymous":false,"inputs":[{"indexed":false,"name":"res","type":"bool"}],"name":"bookingConfirm","type":"event"}]';
+const abi = JSON.parse(abitext);
+console.log(abi);
+console.log(address);
+
+export default new web3.eth.Contract(abi, address);

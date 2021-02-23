@@ -1,12 +1,14 @@
 const assert = require('assert');
 const ganache = require('ganache-cli');
 const Web3 = require('web3');
+const fs = require('fs');
 // The Web3 constructor takes as argument a provider.
 // A provider is a communication layer between the Ethereum network (ganache in this case) and the web3 library
 //
 const web3 = new Web3(ganache.provider());
 
 const { interface, bytecode } = require('../compile');
+fs.writeFileSync('./frontend/abi.txt', interface);
 
 let sc_backend;
 let accounts;
@@ -34,7 +36,7 @@ describe('Backend contract', () => {
             gas: '1000000'
         });
 
-        const booking = await sc_backend.methods.getBookingByAdd("0x1260f1639936e9Da4b032c96b9F721d6BEA1B957").call({
+        const booking = await sc_backend.methods.getBookingByID(1).call({
             from: accounts[0]
         });
 
@@ -43,10 +45,11 @@ describe('Backend contract', () => {
         });
 
         assert.strictEqual('1',number);
-        assert.strictEqual('12', booking[0]);
-        assert.strictEqual('15', booking[1]);
-        assert.strictEqual("Bologna", booking[2]);
-        assert.strictEqual('600', booking[3]);
+        assert.strictEqual('0x1260f1639936e9Da4b032c96b9F721d6BEA1B957', booking[0]);
+        assert.strictEqual('12', booking[1]);
+        assert.strictEqual('15', booking[2]);
+        assert.strictEqual("Bologna", booking[3]);
+        assert.strictEqual('600', booking[4]);
     });
     it('allows more account to book', async () => {
         await sc_backend.methods.book("0x1260f1639936e9Da4b032c96b9F721d6BEA1B957",12,15,"Bologna",600).send({
